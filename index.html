@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mohammad Ershad Wasit | Systems & Infrastructure</title>
+
+    <meta name="description"
+          content="Professional portfolio of Mohammad Ershad Wasit — Senior System Administrator, IT Infrastructure and Network Specialist.">
+
+    <style>
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #f4f1ed;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        ::selection {
+            background: #b11226;
+            color: white;
+        }
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --black: #080808;
+            --black-soft: #0d0d0d;
+            --graphite: #151515;
+            --graphite-light: #202020;
+
+            --red-dark: #3a0d12;
+            --red: #b11226;
+            --red-light: #e63946;
+
+            --white: #f4f1ed;
+            --white-soft: #c9c5c0;
+            --gray: #858585;
+
+            --border: rgba(255,255,255,0.10);
+            --border-red: rgba(177,18,38,0.45);
+
+            --max-width: 1250px;
+        }
+
+        /* =========================================================
+           BACKGROUND
+        ========================================================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+
+            background:
+                radial-gradient(
+                    circle at 80% 10%,
+                    rgba(177,18,38,0.13),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(177,18,38,0.06),
+                    transparent 25%
+                );
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+
+            opacity: 0.035;
+
+            background-image:
+                linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+
+            background-size: 70px 70px;
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 78px;
+
+            display: flex;
+            align-items: center;
+
+            z-index: 1000;
+
+            background: rgba(8,8,8,0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .nav-container {
+            width: min(var(--max-width), 92%);
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .logo span {
+            color: var(--red-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+
+            color: #aaa;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            transition: 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--red-light);
+
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-button {
+            display: none;
+
+            border: 1px solid var(--border);
+            background: transparent;
+            color: white;
+
+            width: 42px;
+            height: 42px;
+
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           GENERAL
+        ========================================================= */
+
+        .container {
+            width: min(var(--max-width), 92%);
+            margin: auto;
+        }
+
+        section {
+            padding: 130px 0;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            color: var(--red-light);
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 4px;
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .section-label::before {
+            content: "";
+            width: 35px;
+            height: 1px;
+            background: var(--red-light);
+        }
+
+        .section-title {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(40px, 6vw, 78px);
+            font-weight: 400;
+            line-height: 1.05;
+
+            max-width: 800px;
+        }
+
+        .section-description {
+            max-width: 680px;
+
+            color: var(--gray);
+            font-size: 16px;
+
+            margin-top: 25px;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 120px;
+
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+
+            width: 65%;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            color: #aaa;
+
+            font-size: 11px;
+            font-weight: 600;
+
+            letter-spacing: 4px;
+            text-transform: uppercase;
+
+            margin-bottom: 28px;
+        }
+
+        .hero-kicker span {
+            display: block;
+
+            width: 8px;
+            height: 8px;
+
+            background: var(--red);
+            border-radius: 50%;
+
+            box-shadow: 0 0 20px rgba(177,18,38,0.8);
+        }
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(55px, 8vw, 115px);
+            font-weight: 400;
+
+            line-height: 0.94;
+
+            letter-spacing: -5px;
+        }
+
+        .hero h1 span {
+            color: #777;
+        }
+
+        .hero-subtitle {
+            margin-top: 32px;
+
+            font-size: 14px;
+            color: #aaa;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            max-width: 610px;
+
+            margin-top: 25px;
+
+            color: #8f8f8f;
+            font-size: 16px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+
+            margin-top: 40px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 48px;
+            padding: 0 25px;
+
+            border: 1px solid var(--border);
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            transition: 0.3s ease;
+        }
+
+        .button-primary {
+            background: var(--red);
+            border-color: var(--red);
+        }
+
+        .button-primary:hover {
+            background: var(--red-light);
+            border-color: var(--red-light);
+
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(177,18,38,0.25);
+        }
+
+        .button-secondary {
+            color: #bbb;
+        }
+
+        .button-secondary:hover {
+            color: white;
+            border-color: var(--red);
+        }
+
+        /* =========================================================
+           HERO ENGINEERING OBJECT
+        ========================================================= */
+
+        .hero-visual {
+            position: absolute;
+
+            right: -5%;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 48%;
+            height: 600px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .engineering-core {
+            position: relative;
+
+            width: 390px;
+            height: 390px;
+
+            transform: rotate(-10deg);
+        }
+
+        .board {
+            position: absolute;
+
+            inset: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #191919,
+                    #0b0b0b
+                );
+
+            border: 1px solid #333;
+
+            box-shadow:
+                0 50px 100px rgba(0,0,0,0.8),
+                inset 0 0 50px rgba(255,255,255,0.02);
+
+            overflow: hidden;
+        }
+
+        .board::before {
+            content: "";
+
+            position: absolute;
+            inset: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent 49%,
+                    rgba(177,18,38,0.45) 50%,
+                    transparent 51%
+                ),
+                linear-gradient(
+                    0deg,
+                    transparent 49%,
+                    rgba(177,18,38,0.35) 50%,
+                    transparent 51%
+                );
+
+            background-size: 48px 48px;
+
+            opacity: 0.6;
+        }
+
+        .board::after {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            border: 1px solid rgba(177,18,38,0.5);
+
+            box-shadow:
+                0 0 30px rgba(177,18,38,0.08),
+                inset 0 0 30px rgba(177,18,38,0.08);
+        }
+
+        .chip {
+            position: absolute;
+
+            background: #111;
+
+            border: 1px solid #333;
+
+            box-shadow:
+                inset 0 0 15px rgba(255,255,255,0.03),
+                0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .chip-1 {
+            width: 85px;
+            height: 85px;
+
+            top: 45px;
+            left: 50px;
+        }
+
+        .chip-2 {
+            width: 60px;
+            height: 60px;
+
+            bottom: 50px;
+            right: 50px;
+        }
+
+        .chip-3 {
+            width: 45px;
+            height: 100px;
+
+            right: 35px;
+            top: 80px;
+        }
+
+        .chip-4 {
+            width: 110px;
+            height: 45px;
+
+            left: 45px;
+            bottom: 55px;
+        }
+
+        .core {
+            position: absolute;
+
+            width: 90px;
+            height: 90px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background: #121212;
+
+            border: 1px solid #444;
+
+            box-shadow:
+                0 0 0 10px rgba(255,255,255,0.015),
+                0 0 45px rgba(177,18,38,0.25);
+        }
+
+        .core::before {
+            content: "CPU";
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            color: #aaa;
+
+            font-size: 10px;
+            letter-spacing: 3px;
+        }
+
+        .red-light {
+            position: absolute;
+
+            width: 7px;
+            height: 7px;
+
+            background: var(--red-light);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px var(--red-light),
+                0 0 25px rgba(230,57,70,0.5);
+        }
+
+        .light-1 {
+            top: 35px;
+            right: 35px;
+        }
+
+        .light-2 {
+            bottom: 30px;
+            left: 35px;
+        }
+
+        .engineering-label {
+            position: absolute;
+
+            bottom: -5px;
+            right: 0;
+
+            color: #555;
+
+            font-size: 10px;
+            letter-spacing: 4px;
+        }
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 100px;
+
+            margin-top: 80px;
+        }
+
+        .about-number {
+            font-family: Georgia, serif;
+
+            font-size: 140px;
+            line-height: 0.8;
+
+            color: #171717;
+
+            user-select: none;
+        }
+
+        .about-text p {
+            color: #aaa;
+
+            font-size: 17px;
+            line-height: 1.9;
+
+            margin-bottom: 25px;
+        }
+
+        .about-highlight {
+            border-left: 2px solid var(--red);
+
+            padding-left: 25px;
+
+            color: #eee !important;
+
+            font-family: Georgia, serif;
+            font-size: 24px !important;
+            line-height: 1.5 !important;
+        }
+
+        /* =========================================================
+           EXPERIENCE
+        ========================================================= */
+
+        .experience-list {
+            margin-top: 80px;
+        }
+
+        .experience-item {
+            display: grid;
+
+            grid-template-columns: 170px 1fr 250px;
+
+            gap: 50px;
+
+            padding: 45px 0;
+
+            border-top: 1px solid var(--border);
+
+            transition: 0.3s ease;
+        }
+
+        .experience-item:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .experience-item:hover {
+            padding-left: 15px;
+            border-top-color: var(--border-red);
+        }
+
+        .experience-year {
+            color: var(--red-light);
+
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+        .experience-role {
+            font-family: Georgia, serif;
+
+            font-size: 30px;
+            font-weight: 400;
+        }
+
+        .experience-company {
+            margin-top: 7px;
+
+            color: #888;
+
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .experience-description {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 1px;
+
+            margin-top: 80px;
+
+            background: var(--border);
+        }
+
+        .skill-card {
+            min-height: 270px;
+
+            padding: 40px;
+
+            background: var(--black);
+
+            transition: 0.35s ease;
+        }
+
+        .skill-card:hover {
+            background: #111;
+        }
+
+        .skill-number {
+            color: var(--red);
+
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .skill-card h3 {
+            margin-top: 35px;
+
+            font-family: Georgia, serif;
+
+            font-size: 27px;
+            font-weight: 400;
+        }
+
+        .skill-card p {
+            margin-top: 18px;
+
+            color: #777;
+
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .skill-list {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 25px;
+        }
+
+        .skill-tag {
+            padding: 7px 10px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            color: #999;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           EDUCATION
+        ========================================================= */
+
+        .education-box {
+            margin-top: 70px;
+
+            padding: 60px;
+
+            border: 1px solid var(--border);
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.025),
+                    transparent
+                );
+        }
+
+        .education-box::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 3px;
+            height: 100%;
+
+            background: var(--red);
+        }
+
+        .education-degree {
+            font-family: Georgia, serif;
+
+            font-size: clamp(30px, 4vw, 48px);
+        }
+
+        .education-school {
+            margin-top: 12px;
+
+            color: #999;
+
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .education-date {
+            margin-top: 35px;
+
+            color: var(--red-light);
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* =========================================================
+           CERTIFICATIONS
+        ========================================================= */
+
+        .cert-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin-top: 70px;
+        }
+
+        .cert-item {
+            padding: 25px;
+
+            border: 1px solid var(--border);
+
+            color: #aaa;
+
+            font-size: 13px;
+
+            transition: 0.3s ease;
+        }
+
+        .cert-item:hover {
+            border-color: var(--red);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .cert-item span {
+            color: var(--red-light);
+
+            margin-right: 12px;
+        }
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: "CONNECT";
+
+            position: absolute;
+
+            right: -100px;
+            bottom: -80px;
+
+            font-family: Georgia, serif;
+
+            font-size: 180px;
+
+            color: rgba(255,255,255,0.018);
+
+            pointer-events: none;
+        }
+
+        .contact-content {
+            margin-top: 70px;
+
+            display: flex;
+
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 50px;
+        }
+
+        .contact-message {
+            max-width: 600px;
+
+            font-family: Georgia, serif;
+
+            font-size: 32px;
+            line-height: 1.4;
+
+            color: #ddd;
+        }
+
+        .contact-details {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+
+            min-width: 300px;
+        }
+
+        .contact-link {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            color: #999;
+
+            font-size: 13px;
+
+            padding-bottom: 12px;
+
+            border-bottom: 1px solid var(--border);
+
+            transition: 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: white;
+            border-color: var(--red);
+        }
+
+        .contact-link::before {
+            content: "→";
+
+            color: var(--red-light);
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 30px 0;
+
+            border-top: 1px solid var(--border);
+
+            color: #555;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .footer-inner {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity 0.9s ease,
+                transform 0.9s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           SCROLL LINE
+        ========================================================= */
+
+        .scroll-indicator {
+            position: absolute;
+
+            bottom: 35px;
+            left: 0;
+
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            color: #555;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 50px;
+            height: 1px;
+
+            background: #444;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero-visual {
+                opacity: 0.25;
+                right: -15%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+            .about-number {
+                font-size: 80px;
+            }
+
+            .experience-item {
+                grid-template-columns: 130px 1fr;
+            }
+
+            .experience-description {
+                grid-column: 2;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 68px;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 68px;
+                left: 0;
+
+                width: 100%;
+
+                display: none;
+                flex-direction: column;
+
+                gap: 25px;
+
+                padding: 30px;
+
+                background: rgba(8,8,8,0.98);
+
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            section {
+                padding: 90px 0;
+            }
+
+            .hero {
+                min-height: 850px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero-visual {
+                width: 100%;
+                right: 0;
+                top: 65%;
+            }
+
+            .engineering-core {
+                width: 300px;
+                height: 300px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .experience-item {
+                display: block;
+
+                padding: 35px 0;
+            }
+
+            .experience-year {
+                margin-bottom: 15px;
+            }
+
+            .experience-description {
+                margin-top: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-box {
+                padding: 35px;
+            }
+
+            .contact-message {
+                font-size: 25px;
+            }
+
+            .contact-details {
+                min-width: 100%;
+                width: 100%;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 10px;
+
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                ME<span>.</span>W
+            </a>
+
+            <nav>
+                <ul class="nav-links" id="navLinks">
+
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#experience">Experience</a>
+                    </li>
+
+                    <li>
+                        <a href="#skills">Expertise</a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open menu">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="container">
+
+                <div class="hero-content reveal">
+
+                    <div class="hero-kicker">
+                        <span></span>
+                        Computer Engineering / IT Infrastructure
+                    </div>
+
+                    <h1>
+                        Mohammad<br>
+                        <span>Ershad</span><br>
+                        Wasit
+                    </h1>
+
+                    <div class="hero-subtitle">
+                        Senior System Administrator
+                    </div>
+
+                    <p class="hero-description">
+                        IT infrastructure professional specializing in
+                        system administration, network operations,
+                        hardware and software troubleshooting, and
+                        enterprise technology environments.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#experience"
+                            class="button button-primary">
+                            Explore Experience
+                        </a>
+
+                        <a
+                            href="#contact"
+                            class="button button-secondary">
+                            Contact Me
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ENGINEERING VISUAL -->
+
+                <div class="hero-visual">
+
+                    <div class="engineering-core">
+
+                        <div class="board">
+
+                            <div class="chip chip-1"></div>
+
+                            <div class="chip chip-2"></div>
+
+                            <div class="chip chip-3"></div>
+
+                            <div class="chip chip-4"></div>
+
+                            <div class="core"></div>
+
+                            <div class="red-light light-1"></div>
+
+                            <div class="red-light light-2"></div>
+
+                        </div>
+
+                        <div class="engineering-label">
+                            SYSTEM / 001
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="scroll-indicator">
+
+                    <div class="scroll-line"></div>
+
+                    Scroll to explore
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-label">
+                    01 / About
+                </div>
+
+                <h2 class="section-title reveal">
+                    Engineering systems<br>
+                    with purpose.
+                </h2>
+
+                <div class="about-grid">
+
+                    <div class="about-number">
+                        01
+                    </div>
+
+                    <div class="about-text reveal">
+
+                        <p class="about-highlight">
+                            A technology professional focused on
+                            reliable systems, infrastructure and
+                            practical engineering.
+                        </p>
+
+                        <p>
+                            With professional experience across Qatar
+                            and the Philippines, my work has centered
+                            around maintaining, supporting and improving
+                            IT environments.
+                        </p>
+
+                        <p>
+                            My experience covers system administration,
+                            network troubleshooting, hardware and
+                            software support, routing and switching,
+                            enterprise IT operations and technical
+                            problem solving.
+                        </p>
+
+                        <p>
+                            I approach technology with an engineering
+                            mindset: understand the system, identify
+                            the problem, build the solution and make it
+                            reliable.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EXPERIENCE
+        ====================================================== -->
+
+        <section id="experience">
+
+            <div class="container">
+
+                <div class="section-label">
+                    02 / Experience
+                </div>
+
+                <h2 class="section-title reveal">
+                    Professional<br>
+                    journey.
+                </h2>
+
+                <p class="section-description reveal">
+                    Experience across system administration,
+                    IT support and enterprise infrastructure.
+                </p>
+
+
+                <div class="experience-list">
+
+
+                    <!-- JOB 1 -->
+
+                    <article class="experience-item reveal">
+
+                        <div class="experience-year">
+                            2023 — PRESENT
+                        </div>
+
+                        <div>
+
+                            <h3 class="experience-role">
+                                Senior System Administrator
+                            </h3>
+
+                            <div class="experience-company">
+                                Future Pipe Industries · Doha, Qatar
+                            </div>
+
+                        </div>
+
+                        <p class="experience-description">
+                            Responsible for system administration,
+                            infrastructure support, hardware and
+                            software troubleshooting, networking and
+                            maintaining reliable IT operations.
+                        </p>
+
+                    </article>
+
+
+                    <!-- JOB 2 -->
+
+                    <article class="experience-item reveal">
+
+                        <div class="experience-year">
+                            2017 — 2023
+                        </div>
+
+                        <div>
+
+                            <h3 class="experience-role">
+                                IT Administrator
+                            </h3>
+
+                            <div class="experience-company">
+                                United Business Development · Doha, Qatar
+                            </div>
+
+                        </div>
+
+                        <p class="experience-description">
+                            Managed IT systems, user support, network
+                            infrastructure, troubleshooting and daily
+                            technology operations.
+                        </p>
+
+                    </article>
+
+
+                    <!-- JOB 3 -->
+
+                    <article class="experience-item reveal">
+
+                        <div class="experience-year">
+                            2016 — 2017
+                        </div>
+
+                        <div>
+
+                            <h3 class="experience-role">
+                                IT Support
+                            </h3>
+
+                            <div class="experience-company">
+                                Office of the Provincial Engineer ·
+                                Jolo, Sulu, Philippines
+                            </div>
+
+                        </div>
+
+                        <p class="experience-description">
+                            Provided technical support, computer
+                            troubleshooting, hardware and software
+                            assistance and general IT services.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SKILLS
+        ====================================================== -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-label">
+                    03 / Expertise
+                </div>
+
+                <h2 class="section-title reveal">
+                    Systems.<br>
+                    Networks. Software.
+                </h2>
+
+                <p class="section-description reveal">
+                    A combination of infrastructure knowledge,
+                    technical troubleshooting and software
+                    fundamentals.
+                </p>
+
+
+                <div class="skills-grid">
+
+
+                    <!-- SYSTEMS -->
+
+                    <article class="skill-card reveal">
+
+                        <div class="skill-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Systems
+                        </h3>
+
+                        <p>
+                            Administration and troubleshooting of
+                            computer systems, hardware, software and
+                            enterprise IT environments.
+                        </p>
+
+                        <div class="skill-list">
+
+                            <span class="skill-tag">
+                                System Administration
+                            </span>
+
+                            <span class="skill-tag">
+                                Hardware
+                            </span>
+
+                            <span class="skill-tag">
+                                Software
+                            </span>
+
+                            <span class="skill-tag">
+                                Troubleshooting
+                            </span>
+
+                            <span class="skill-tag">
+                                IT Support
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- NETWORK -->
+
+                    <article class="skill-card reveal">
+
+                        <div class="skill-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Networking
+                        </h3>
+
+                        <p>
+                            Networking fundamentals with experience
+                            in routing, switching, connectivity and
+                            infrastructure troubleshooting.
+                        </p>
+
+                        <div class="skill-list">
+
+                            <span class="skill-tag">
+                                Routing
+                            </span>
+
+                            <span class="skill-tag">
+                                Switching
+                            </span>
+
+                            <span class="skill-tag">
+                                CCNA
+                            </span>
+
+                            <span class="skill-tag">
+                                Network Support
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- SOFTWARE -->
+
+                    <article class="skill-card reveal">
+
+                        <div class="skill-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Software
+                        </h3>
+
+                        <p>
+                            Programming and web technology knowledge
+                            supporting automation, development and
+                            technical problem solving.
+                        </p>
+
+                        <div class="skill-list">
+
+                            <span class="skill-tag">
+                                PHP
+                            </span>
+
+                            <span class="skill-tag">
+                                C++
+                            </span>
+
+                            <span class="skill-tag">
+                                Visual Basic 6
+                            </span>
+
+                            <span class="skill-tag">
+                                HTML5
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EDUCATION
+        ====================================================== -->
+
+        <section id="education">
+
+            <div class="container">
+
+                <div class="section-label">
+                    04 / Education
+                </div>
+
+                <h2 class="section-title reveal">
+                    Engineering<br>
+                    foundation.
+                </h2>
+
+                <div class="education-box reveal">
+
+                    <div class="education-degree">
+                        Bachelor of Science<br>
+                        in Computer Engineering
+                    </div>
+
+                    <div class="education-school">
+                        Universidad de Zamboanga
+                    </div>
+
+                    <div class="education-date">
+                        Graduated · May 28, 2016
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CERTIFICATIONS
+        ====================================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-label">
+                    05 / Certifications
+                </div>
+
+                <h2 class="section-title reveal">
+                    Continuous<br>
+                    learning.
+                </h2>
+
+                <div class="cert-grid">
+
+                    <div class="cert-item reveal">
+                        <span>01</span>
+                        Cisco CCNA 1
+                    </div>
+
+                    <div class="cert-item reveal">
+                        <span>02</span>
+                        Cisco CCNA 2
+                    </div>
+
+                    <div class="cert-item reveal">
+                        <span>03</span>
+                        TESDA NC II Computer Hardware Servicing
+                    </div>
+
+                    <div class="cert-item reveal">
+                        <span>04</span>
+                        HTML5 Training
+                    </div>
+
+                    <div class="cert-item reveal">
+                        <span>05</span>
+                        SaaS / AWS Training
+                    </div>
+
+                    <div class="cert-item reveal">
+                        <span>06</span>
+                        Technopreneurship
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             LANGUAGES
+        ====================================================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-label">
+                    06 / Communication
+                </div>
+
+                <h2 class="section-title reveal">
+                    Global perspective.
+                </h2>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-number">
+                            01
+                        </div>
+
+                        <h3>
+                            English
+                        </h3>
+
+                        <p>
+                            Fluent
+                        </p>
+
+                    </div>
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Tagalog
+                        </h3>
+
+                        <p>
+                            Native
+                        </p>
+
+                    </div>
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Malay
+                        </h3>
+
+                        <p>
+                            Proficient
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <section class="contact" id="contact">
+
+            <div class="container">
+
+                <div class="section-label">
+                    07 / Contact
+                </div>
+
+                <h2 class="section-title reveal">
+                    Let's connect.
+                </h2>
+
+                <div class="contact-content">
+
+                    <p class="contact-message reveal">
+                        Interested in technology, infrastructure,
+                        systems and building reliable solutions?
+                        Let's start a conversation.
+                    </p>
+
+                    <div class="contact-details reveal">
+
+                        <a
+                            href="mailto:mohd.ershad8992@gmail.com"
+                            class="contact-link">
+
+                            mohd.ershad8992@gmail.com
+
+                        </a>
+
+                        <a
+                            href="tel:+97431609373"
+                            class="contact-link">
+
+                            +974 3160 9373
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-inner">
+
+                <span>
+                    © 2026 Mohammad Ershad Wasit
+                </span>
+
+                <span>
+                    Systems · Infrastructure · Engineering
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
+
+        const menuButton = document.getElementById("menuButton");
+        const navLinks = document.getElementById("navLinks");
+
+        menuButton.addEventListener("click", function () {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* Close mobile menu after clicking */
+
+        document.querySelectorAll(".nav-links a").forEach(function(link) {
+
+            link.addEventListener("click", function() {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const observer =
+            new IntersectionObserver(
+
+                function(entries) {
+
+                    entries.forEach(function(entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("visible");
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealElements.forEach(function(element) {
+
+            observer.observe(element);
+
+        });
+
+
+        /* =====================================================
+           HERO ENGINEERING OBJECT MOVEMENT
+        ====================================================== */
+
+        const engineeringCore =
+            document.querySelector(".engineering-core");
+
+        document.addEventListener("mousemove", function(event) {
+
+            if (!engineeringCore) return;
+
+            const x =
+                (event.clientX / window.innerWidth - 0.5);
+
+            const y =
+                (event.clientY / window.innerHeight - 0.5);
+
+            engineeringCore.style.transform =
+                `rotateX(${y * -8}deg)
+                 rotateY(${x * 10}deg)
+                 rotateZ(-10deg)`;
+
+        });
+
+
+        /* =====================================================
+           NAVBAR SCROLL EFFECT
+        ====================================================== */
+
+        const navbar =
+            document.querySelector(".navbar");
+
+        window.addEventListener("scroll", function() {
+
+            if (window.scrollY > 50) {
+
+                navbar.style.background =
+                    "rgba(8,8,8,0.95)";
+
+            } else {
+
+                navbar.style.background =
+                    "rgba(8,8,8,0.82)";
+
+            }
+
+        });
+
+
+        /* =====================================================
+           INITIAL PAGE LOAD
+        ====================================================== */
+
+        window.addEventListener("load", function() {
+
+            document.body.classList.add("loaded");
+
+        });
+
+    </script>
+
+</body>
+</html>
